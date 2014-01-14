@@ -7,16 +7,24 @@
 //
 
 #import "HTAppDelegate.h"
-#import "HTMapListDataSource.h"
 
 @implementation HTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
-    HTMapListDataSource *dataSourceTest = [[HTMapListDataSource alloc] init];
-    NSLog(@"%@", dataSourceTest.maps);
+    
+    // iOS 7 fanciness - big up Remote, Safari, and Vesper
+    SEL clearBG = NSSelectorFromString(@"_setApplicationIsOpaque:");
+    if ([[UIApplication sharedApplication] respondsToSelector:clearBG]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [[UIApplication sharedApplication] performSelector:clearBG withObject:NO];
+#pragma clang diagnostic pop
+        self.window.backgroundColor = [UIColor clearColor];
+    }
+    
+    // self.window.rootViewController =
     [self.window makeKeyAndVisible];
     return YES;
 }
