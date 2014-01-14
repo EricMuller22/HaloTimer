@@ -7,26 +7,23 @@
 //
 
 #import "HTMapListViewController.h"
+#import "HTMapListDataSource.h"
 
 @interface HTMapListViewController ()
+
+@property (nonatomic, strong) id<UITableViewDataSource> dataSource;
 
 @end
 
 @implementation HTMapListViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // self.tableView.dataSource =
+    self.view.alpha = 0.85f;
+    self.dataSource = [HTMapListDataSource new];
+    self.tableView.dataSource = self.dataSource;
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:[[UITableViewCell class] description]];
 }
 
 @end

@@ -34,10 +34,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[[UITableViewCell class] description] forIndexPath:indexPath];
+    HTMap *map = (HTMap *)[self.maps objectAtIndex:indexPath.row];
+    cell.textLabel.text = map.name;
     
-    // Configure the cell...
+    // screenshot
+    // cell.imageView.image = map.screenshot;
     
     return cell;
 }
