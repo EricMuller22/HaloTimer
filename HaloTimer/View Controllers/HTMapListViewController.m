@@ -9,11 +9,13 @@
 #import "HTMapListViewController.h"
 #import "HTMapListDataSource.h"
 
-@interface HTMapListViewController ()
+@interface HTMapListViewController () <UITableViewDelegate>
 
 @property (nonatomic, strong) id<UITableViewDataSource> dataSource;
 
 @end
+
+static const CGFloat HTMapListCellHeight = 64.0;
 
 @implementation HTMapListViewController
 
@@ -22,8 +24,17 @@
     [super viewDidLoad];
     self.view.alpha = 0.85f;
     self.dataSource = [HTMapListDataSource new];
+    self.tableView.delegate = self;
     self.tableView.dataSource = self.dataSource;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:[[UITableViewCell class] description]];
+    
+}
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return HTMapListCellHeight;
 }
 
 @end

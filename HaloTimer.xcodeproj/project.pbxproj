@@ -24,6 +24,7 @@
 		9B598B0818850C3D00CB343D /* halo.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9B598B0718850C3D00CB343D /* halo.sqlite */; };
 		9B598B0B18850C8A00CB343D /* HTMapListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B598B0A18850C8A00CB343D /* HTMapListDataSource.m */; };
 		9B598B0D1885101000CB343D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B598B0C1885101000CB343D /* libsqlite3.dylib */; };
+		AC2ACAA218862E1000F22477 /* Lato.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2ACAA118862E1000F22477 /* Lato.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		9B598B0918850C8A00CB343D /* HTMapListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTMapListDataSource.h; path = Model/HTMapListDataSource.h; sourceTree = "<group>"; };
 		9B598B0A18850C8A00CB343D /* HTMapListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTMapListDataSource.m; path = Model/HTMapListDataSource.m; sourceTree = "<group>"; };
 		9B598B0C1885101000CB343D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		AC2ACAA118862E1000F22477 /* Lato.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lato.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				9B598ADD188508A400CB343D /* HTAppDelegate.h */,
 				9B598ADE188508A400CB343D /* HTAppDelegate.m */,
 				9B598AE0188508A400CB343D /* Images.xcassets */,
+				AC2ACAA018862DF500F22477 /* Resources */,
 				9B598AD5188508A400CB343D /* Supporting Files */,
 			);
 			path = HaloTimer;
@@ -182,6 +185,14 @@
 				9B598B0A18850C8A00CB343D /* HTMapListDataSource.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		AC2ACAA018862DF500F22477 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AC2ACAA118862E1000F22477 /* Lato.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +277,7 @@
 				9B598AD9188508A400CB343D /* InfoPlist.strings in Resources */,
 				9B598B0818850C3D00CB343D /* halo.sqlite in Resources */,
 				9B598AE1188508A400CB343D /* Images.xcassets in Resources */,
+				AC2ACAA218862E1000F22477 /* Lato.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
