@@ -32,13 +32,13 @@
 
 - (void)setupAndLayoutViews
 {
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor clearColor];
     
-    self.rocketTimerView = [HTWeaponTimerView timerViewForWeapon:@"Ro" tintColor:[UIColor orangeColor]];
-    self.sniperTimerView = [HTWeaponTimerView timerViewForWeapon:@"Sh" tintColor:[UIColor grayColor]];
-    self.shotgunTimerView = [HTWeaponTimerView timerViewForWeapon:@"S" tintColor:[UIColor purpleColor]];
-    self.overshieldTimerView = [HTWeaponTimerView timerViewForWeapon:@"OS" tintColor:[UIColor redColor]];
-    self.camoTimerView = [HTWeaponTimerView timerViewForWeapon:@"AC" tintColor:[UIColor blueColor]];
+    self.rocketTimerView = [HTWeaponTimerView timerViewForWeapon:@"Rocket" tintColor:[UIColor orangeColor]];
+    self.sniperTimerView = [HTWeaponTimerView timerViewForWeapon:@"Shotgun" tintColor:[UIColor grayColor]];
+    self.shotgunTimerView = [HTWeaponTimerView timerViewForWeapon:@"Sniper" tintColor:[UIColor purpleColor]];
+    self.overshieldTimerView = [HTWeaponTimerView timerViewForWeapon:@"Overshield" tintColor:[UIColor redColor]];
+    self.camoTimerView = [HTWeaponTimerView timerViewForWeapon:@"Active Camo" tintColor:[UIColor blueColor]];
     
     [self addSubview:self.rocketTimerView];
     [self addSubview:self.sniperTimerView];

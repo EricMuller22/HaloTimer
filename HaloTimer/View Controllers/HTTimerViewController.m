@@ -29,15 +29,22 @@ typedef NS_ENUM(NSInteger, HTTimerButtonStatus) {
 
 - (void)viewDidLoad
 {
-    self.timerView = [[HTMapTimerView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) -40)];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.view.alpha = 0.9f;
+    
+    self.timerView = [[HTMapTimerView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:self.timerView];
     
     self.timingButton = [[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - 40, CGRectGetWidth(self.view.frame), 40)];
-    self.timingButton.backgroundColor = [UIColor greenColor];
-    self.timingButton.titleLabel.text = @"Start";
     [self.timingButton addTarget:self action:@selector(timingButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.timingButton];
+    
+//    NSDictionary *views = @{@"timers": self.timerView,
+//                            @"button": self.timingButton};
+//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[timers][button(buttonHeight)]|" options:NSLayoutFormatAlignAllRight metrics:@{@"buttonHeight": @(40)} views:views]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timerView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timerView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timerView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -54,7 +61,6 @@ typedef NS_ENUM(NSInteger, HTTimerButtonStatus) {
         [self resetTimer];
         [self setTimerButtonState:HTTimerButtonReadyToStart];
     } else {
-        // start counting down
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self.timerView selector:@selector(countdown) userInfo:nil repeats:YES];
         [self setTimerButtonState:HTTimerButtonReadyToReset];
     }

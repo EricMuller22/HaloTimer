@@ -37,15 +37,18 @@
 
 - (void)setupAndLayoutViews
 {
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor clearColor];
+    
+    UIFont *labelFont = [UIFont fontWithName:@"Lato" size:28.0];
     
     self.timeLabel = [[UILabel alloc] init];
     self.timeLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.timeLabel.font = labelFont;
     [self addSubview:self.timeLabel];
     
     self.weaponLabel = [[UILabel alloc] init];
     self.weaponLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.weaponLabel.textColor = [UIColor whiteColor];
+    self.weaponLabel.font = labelFont;
     [self addSubview:self.weaponLabel];
     
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.timeLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:0.5 constant:0]];
@@ -58,7 +61,7 @@
 {
     [super setTintColor:tintColor];
     self.timeLabel.textColor = tintColor;
-    self.weaponLabel.backgroundColor = tintColor;
+    self.weaponLabel.textColor = tintColor;
 }
 
 - (void)countdown
