@@ -48,9 +48,10 @@
     self.weaponLabel.textColor = [UIColor whiteColor];
     [self addSubview:self.weaponLabel];
     
-    NSDictionary *views = @{@"time": self.timeLabel, @"weapon": self.weaponLabel};
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=40)-[weapon]-40-[time]-(>=40)-|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=100)-[weapon]" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.timeLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:0.5 constant:0]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.weaponLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:0.5 constant:0]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.weaponLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:0.5 constant:0]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.timeLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.5 constant:0]];
 }
 
 - (void)setTintColor:(UIColor *)tintColor
