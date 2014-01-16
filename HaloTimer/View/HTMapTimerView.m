@@ -55,8 +55,9 @@
                             @"shotgun": self.shotgunTimerView,
                             @"overshield": self.overshieldTimerView,
                             @"camo": self.camoTimerView};
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[rocket]-20-|" options:NSLayoutFormatAlignAllLeft metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[rocket(180)]-[sniper(180)]-[shotgun(180)]-[overshield(180)]-[camo(180)]|" options:NSLayoutFormatAlignAllRight metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[rocket]|" options:NSLayoutFormatAlignAllLeft|NSLayoutFormatAlignAllRight metrics:nil views:views]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.rocketTimerView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeHeight multiplier:0.2 constant:0]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[rocket][sniper(==rocket)][shotgun(==rocket)][overshield(==rocket)][camo(==rocket)]|" options:NSLayoutFormatAlignAllLeft|NSLayoutFormatAlignAllRight metrics:nil views:views]];
 }
 
 - (void)setMap:(HTMap *)map
