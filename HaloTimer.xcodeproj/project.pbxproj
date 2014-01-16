@@ -25,6 +25,9 @@
 		9B598B0B18850C8A00CB343D /* HTMapListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B598B0A18850C8A00CB343D /* HTMapListDataSource.m */; };
 		9B598B0D1885101000CB343D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B598B0C1885101000CB343D /* libsqlite3.dylib */; };
 		AC2ACAA218862E1000F22477 /* Lato.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2ACAA118862E1000F22477 /* Lato.ttf */; };
+		AC2ACAAA1886705600F22477 /* HTTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2ACAA91886705600F22477 /* HTTimerViewController.m */; };
+		AC370E68188787520026D744 /* HTWeaponTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC370E67188787520026D744 /* HTWeaponTimerView.m */; };
+		AC370E6B18879A9E0026D744 /* HTMapTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC370E6A18879A9E0026D744 /* HTMapTimerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,12 @@
 		9B598B0A18850C8A00CB343D /* HTMapListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTMapListDataSource.m; path = Model/HTMapListDataSource.m; sourceTree = "<group>"; };
 		9B598B0C1885101000CB343D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		AC2ACAA118862E1000F22477 /* Lato.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lato.ttf; sourceTree = "<group>"; };
+		AC2ACAA81886705600F22477 /* HTTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTimerViewController.h; path = "View Controllers/HTTimerViewController.h"; sourceTree = "<group>"; };
+		AC2ACAA91886705600F22477 /* HTTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTimerViewController.m; path = "View Controllers/HTTimerViewController.m"; sourceTree = "<group>"; };
+		AC370E66188787520026D744 /* HTWeaponTimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTWeaponTimerView.h; path = View/HTWeaponTimerView.h; sourceTree = "<group>"; };
+		AC370E67188787520026D744 /* HTWeaponTimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTWeaponTimerView.m; path = View/HTWeaponTimerView.m; sourceTree = "<group>"; };
+		AC370E6918879A9E0026D744 /* HTMapTimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTMapTimerView.h; path = View/HTMapTimerView.h; sourceTree = "<group>"; };
+		AC370E6A18879A9E0026D744 /* HTMapTimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTMapTimerView.m; path = View/HTMapTimerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +135,7 @@
 		9B598AD4188508A400CB343D /* HaloTimer */ = {
 			isa = PBXGroup;
 			children = (
+				AC370E65188787160026D744 /* View */,
 				9B598B0318850ABC00CB343D /* Model */,
 				9B598AFF1885096D00CB343D /* View Controllers */,
 				9B598ADD188508A400CB343D /* HTAppDelegate.h */,
@@ -171,6 +181,8 @@
 			children = (
 				9B598B00188509B600CB343D /* HTMapListViewController.h */,
 				9B598B01188509B600CB343D /* HTMapListViewController.m */,
+				AC2ACAA81886705600F22477 /* HTTimerViewController.h */,
+				AC2ACAA91886705600F22477 /* HTTimerViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -193,6 +205,17 @@
 				AC2ACAA118862E1000F22477 /* Lato.ttf */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		AC370E65188787160026D744 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC370E66188787520026D744 /* HTWeaponTimerView.h */,
+				AC370E67188787520026D744 /* HTWeaponTimerView.m */,
+				AC370E6918879A9E0026D744 /* HTMapTimerView.h */,
+				AC370E6A18879A9E0026D744 /* HTMapTimerView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,8 +319,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC370E68188787520026D744 /* HTWeaponTimerView.m in Sources */,
+				AC370E6B18879A9E0026D744 /* HTMapTimerView.m in Sources */,
 				9B598B0B18850C8A00CB343D /* HTMapListDataSource.m in Sources */,
 				9B598B0618850B2600CB343D /* HTMap.m in Sources */,
+				AC2ACAAA1886705600F22477 /* HTTimerViewController.m in Sources */,
 				9B598B02188509B600CB343D /* HTMapListViewController.m in Sources */,
 				9B598ADF188508A400CB343D /* HTAppDelegate.m in Sources */,
 				9B598ADB188508A400CB343D /* main.m in Sources */,
@@ -507,6 +533,7 @@
 				9B598AF9188508A400CB343D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B598AFA188508A400CB343D /* Build configuration list for PBXNativeTarget "HaloTimerTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +542,7 @@
 				9B598AFC188508A400CB343D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

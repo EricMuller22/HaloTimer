@@ -7,7 +7,7 @@
 //
 
 #import "HTAppDelegate.h"
-#import "HTMapListViewController.h"
+#import "HTTimerViewController.h"
 
 @implementation HTAppDelegate
 
@@ -25,7 +25,7 @@
         self.window.backgroundColor = [UIColor clearColor];
     }
     
-    self.window.rootViewController = [HTMapListViewController new];
+    self.window.rootViewController = [HTTimerViewController new];
     [self.window makeKeyAndVisible];
     return YES;
 }
