@@ -20,11 +20,17 @@
 
 @end
 
+typedef NS_ENUM(NSInteger, HTTimerButtonStatus) {
+    HTTimerButtonReadyToStart,
+    HTTimerButtonReadyToReset
+};
+
 @implementation HTTimerViewController
 
 - (void)viewDidLoad
 {
     self.timerView = [[HTMapTimerView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) -40)];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.timerView];
     
     self.timingButton = [[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - 40, CGRectGetWidth(self.view.frame), 40)];
@@ -34,36 +40,46 @@
     [self.view addSubview:self.timingButton];
 }
 
-- (void)timingButtonPressed
-{
-    if (self.timer) {
-        // reset weapon timers
-        [self.timer invalidate];
-        self.timer = nil;
-        [self.timerView setMap:self.map];
-        
-        // set button to ready to start
-        [self.timingButton setBackgroundColor:[UIColor greenColor]];
-    } else {
-        // start counting down
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self.timerView selector:@selector(countdown) userInfo:nil repeats:YES];
-        
-        // set button to ready for reset
-        self.timingButton.backgroundColor = [UIColor grayColor];
-    }
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self setTimerButtonState:HTTimerButtonReadyToStart];
     HTMapListDataSource *dataSource = [HTMapListDataSource new];
     self.map = [dataSource maps][0];
+}
+
+- (void)timingButtonPressed
+{
+    if (self.timer) {
+        [self resetTimer];
+        [self setTimerButtonState:HTTimerButtonReadyToStart];
+    } else {
+        // start counting down
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self.timerView selector:@selector(countdown) userInfo:nil repeats:YES];
+        [self setTimerButtonState:HTTimerButtonReadyToReset];
+    }
+}
+
+- (void)resetTimer
+{
+    [self.timer invalidate];
+    self.timer = nil;
+    [self.timerView setMap:self.map];
 }
 
 - (void)setMap:(HTMap *)map
 {
     [self.timerView setMap:map];
     _map = map;
+}
+
+- (void)setTimerButtonState:(HTTimerButtonStatus)status
+{
+    if (status == HTTimerButtonReadyToReset) {
+        self.timingButton.backgroundColor = [UIColor grayColor];
+    } else {
+        self.timingButton.backgroundColor = [UIColor greenColor];
+    }
 }
 
 @end
