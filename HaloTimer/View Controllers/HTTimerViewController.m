@@ -63,6 +63,7 @@
 - (void)setMap:(HTMap *)map
 {
     [self.timerView setMap:map];
+    _map = map;
 }
 
 @end
