@@ -37,4 +37,12 @@ static const CGFloat HTMapListCellHeight = 64.0;
     return HTMapListCellHeight;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    HTMap *map = [[HTMapListDataSource maps] objectAtIndex:indexPath.row];
+    if (self.mapDelegate) {
+        [self.mapDelegate mapListViewController:self didSelectMap:map];
+    }
+}
+
 @end

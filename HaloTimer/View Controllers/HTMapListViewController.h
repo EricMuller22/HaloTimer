@@ -19,6 +19,6 @@
 
 @interface HTMapListViewController : UITableViewController
 
-@property (nonatomic, weak) id<HTMapListDelegate> delegate;
+@property (nonatomic, weak) id<HTMapListDelegate> mapDelegate;
 
 @end

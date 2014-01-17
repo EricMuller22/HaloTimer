@@ -10,6 +10,6 @@
 
 @interface HTMapListDataSource : NSObject <UITableViewDataSource>
 
-@property (nonatomic, strong, readonly) NSArray *maps;
++ (NSArray *)maps;
 
 @end

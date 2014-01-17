@@ -11,7 +11,7 @@
 #import "HTMapListViewController.h"
 #import "HTMapListDataSource.h"
 
-@interface HTTimerViewController () <UIPopoverControllerDelegate>
+@interface HTTimerViewController () <UIPopoverControllerDelegate, HTMapListDelegate>
 
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) HTMapTimerView *timerView;
@@ -29,6 +29,8 @@ typedef NS_ENUM(NSInteger, HTTimerButtonStatus) {
     HTTimerButtonReadyToReset
 };
 
+static const CGFloat HTTimerButtonRadius = 33.0;
+
 @implementation HTTimerViewController
 
 - (void)viewDidLoad
@@ -39,8 +41,8 @@ typedef NS_ENUM(NSInteger, HTTimerButtonStatus) {
     self.timerView = [[HTMapTimerView alloc] init];
     [self.view addSubview:self.timerView];
     
-    self.timingButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 88, 88)];
-    self.timingButton.layer.cornerRadius = 44;
+    self.timingButton = [[UIButton alloc] init];
+    self.timingButton.layer.cornerRadius = HTTimerButtonRadius;
     self.timingButton.clipsToBounds = YES;
     [self.timingButton addTarget:self action:@selector(timingButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.timingButton];
@@ -70,8 +72,8 @@ typedef NS_ENUM(NSInteger, HTTimerButtonStatus) {
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[timers][mapInfo(132)]|" options:NSLayoutFormatAlignAllLeading metrics:nil views:views]];
     
     // button
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:88]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:88]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:HTTimerButtonRadius * 2]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:HTTimerButtonRadius * 2]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.5 constant:0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.mapInfoView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
 }
@@ -80,8 +82,7 @@ typedef NS_ENUM(NSInteger, HTTimerButtonStatus) {
 {
     [super viewWillAppear:animated];
     [self setTimerButtonState:HTTimerButtonReadyToStart];
-    HTMapListDataSource *dataSource = [HTMapListDataSource new];
-    self.map = [dataSource maps][0];
+    self.map = [HTMapListDataSource maps][0];
 }
 
 #pragma mark - Rotation
@@ -133,10 +134,19 @@ typedef NS_ENUM(NSInteger, HTTimerButtonStatus) {
 
 - (void)presentMapList
 {
-    self.mapPopoverController = [[UIPopoverController alloc] initWithContentViewController:[HTMapListViewController new]];
+    HTMapListViewController *mapListViewController = [HTMapListViewController new];
+    mapListViewController.mapDelegate = self;
+    self.mapPopoverController = [[UIPopoverController alloc] initWithContentViewController:mapListViewController];
     self.mapPopoverController.delegate = self;
     self.mapPopoverController.popoverContentSize = CGSizeMake(320, 480);
     [self.mapPopoverController presentPopoverFromRect:self.mapInfoView.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+}
+
+- (void)mapListViewController:(HTMapListViewController *)mapListViewController didSelectMap:(HTMap *)map
+{
+    [self setMap:map];
+    [self.mapPopoverController dismissPopoverAnimated:YES];
+    self.mapPopoverController = nil;
 }
 
 #pragma mark - UIPopoverControllerDelegate

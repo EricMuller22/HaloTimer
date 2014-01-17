@@ -12,8 +12,6 @@
 
 @implementation HTMapListDataSource
 
-@synthesize maps = _maps;
-
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -23,13 +21,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.maps count];
+    return [[HTMapListDataSource maps] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[[UITableViewCell class] description] forIndexPath:indexPath];
-    HTMap *map = (HTMap *)[self.maps objectAtIndex:indexPath.row];
+    HTMap *map = (HTMap *)[[HTMapListDataSource maps] objectAtIndex:indexPath.row];
     cell.textLabel.text = map.name;
     
     // screenshot
@@ -40,7 +38,9 @@
 
 #pragma mark - SQLite
 
-- (NSArray *)maps
+static NSArray *_maps;
+
++ (NSArray *)maps
 {
     if (!_maps) {
         NSMutableArray *mapArray = [NSMutableArray array];
