@@ -35,8 +35,8 @@
     self.backgroundColor = [UIColor clearColor];
     
     self.rocketTimerView = [HTWeaponTimerView timerViewForWeapon:@"Rocket" tintColor:[UIColor orangeColor]];
-    self.sniperTimerView = [HTWeaponTimerView timerViewForWeapon:@"Shotgun" tintColor:[UIColor grayColor]];
-    self.shotgunTimerView = [HTWeaponTimerView timerViewForWeapon:@"Sniper" tintColor:[UIColor purpleColor]];
+    self.shotgunTimerView = [HTWeaponTimerView timerViewForWeapon:@"Shotgun" tintColor:[UIColor grayColor]];
+    self.sniperTimerView = [HTWeaponTimerView timerViewForWeapon:@"Sniper" tintColor:[UIColor purpleColor]];
     self.overshieldTimerView = [HTWeaponTimerView timerViewForWeapon:@"Overshield" tintColor:[UIColor redColor]];
     self.camoTimerView = [HTWeaponTimerView timerViewForWeapon:@"Active Camo" tintColor:[UIColor blueColor]];
     
