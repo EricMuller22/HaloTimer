@@ -145,6 +145,8 @@ static const CGFloat HTTimerButtonRadius = 33.0;
 
 - (void)mapListViewController:(HTMapListViewController *)mapListViewController didSelectMap:(HTMap *)map
 {
+    [self resetTimer];
+    [self setTimerButtonState:HTTimerButtonReadyToStart];
     [self setMap:map];
     [self.mapPopoverController dismissPopoverAnimated:YES];
     self.mapPopoverController = nil;
