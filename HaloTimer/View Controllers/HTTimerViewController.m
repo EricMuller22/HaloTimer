@@ -8,6 +8,7 @@
 
 #import "HTTimerViewController.h"
 #import "HTMapTimerView.h"
+#import "HTMapInfoView.h"
 #import "HTMapListViewController.h"
 #import "HTMapListDataSource.h"
 
@@ -16,7 +17,7 @@
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) HTMapTimerView *timerView;
 @property (strong, nonatomic) UIButton *timingButton;
-@property (strong, nonatomic) UIView *mapInfoView;
+@property (strong, nonatomic) HTMapInfoView *mapInfoView;
 
 @property (strong, nonatomic) UIPopoverController *mapPopoverController;
 
@@ -38,17 +39,16 @@ static const CGFloat HTTimerButtonRadius = 33.0;
     self.view.backgroundColor = [UIColor whiteColor];
     self.view.alpha = 0.9f;
     
-    self.timerView = [[HTMapTimerView alloc] init];
+    self.timerView = [HTMapTimerView new];
     [self.view addSubview:self.timerView];
     
-    self.timingButton = [[UIButton alloc] init];
+    self.timingButton = [UIButton new];
     self.timingButton.layer.cornerRadius = HTTimerButtonRadius;
     self.timingButton.clipsToBounds = YES;
     [self.timingButton addTarget:self action:@selector(timingButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.timingButton];
     
-    self.mapInfoView = [[UIView alloc] init];
-    self.mapInfoView.backgroundColor = [UIColor grayColor];
+    self.mapInfoView = [HTMapInfoView new];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(presentMapList)];
     [self.mapInfoView addGestureRecognizer:tap];
     [self.view addSubview:self.mapInfoView];
@@ -129,6 +129,7 @@ static const CGFloat HTTimerButtonRadius = 33.0;
 - (void)setMap:(HTMap *)map
 {
     [self.timerView setMap:map];
+    [self.mapInfoView setMap:map];
     _map = map;
 }
 

@@ -20,7 +20,7 @@
 
 + (instancetype)timerViewForWeapon:(NSString *)weapon tintColor:(UIColor *)tintColor
 {
-    HTWeaponTimerView *timerView = [[HTWeaponTimerView alloc] init];
+    HTWeaponTimerView *timerView = [HTWeaponTimerView new];
     timerView.tintColor = tintColor;
     [timerView setWeapon:weapon];
     return timerView;
@@ -41,12 +41,12 @@
     
     UIFont *labelFont = [UIFont fontWithName:@"Lato" size:28.0];
     
-    self.timeLabel = [[UILabel alloc] init];
+    self.timeLabel = [UILabel new];
     self.timeLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.timeLabel.font = labelFont;
     [self addSubview:self.timeLabel];
     
-    self.weaponLabel = [[UILabel alloc] init];
+    self.weaponLabel = [UILabel new];
     self.weaponLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.weaponLabel.font = labelFont;
     [self addSubview:self.weaponLabel];

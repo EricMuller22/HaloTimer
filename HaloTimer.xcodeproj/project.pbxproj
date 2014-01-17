@@ -24,6 +24,7 @@
 		9B598B0818850C3D00CB343D /* halo.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9B598B0718850C3D00CB343D /* halo.sqlite */; };
 		9B598B0B18850C8A00CB343D /* HTMapListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B598B0A18850C8A00CB343D /* HTMapListDataSource.m */; };
 		9B598B0D1885101000CB343D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B598B0C1885101000CB343D /* libsqlite3.dylib */; };
+		9B598B101889236B00CB343D /* HTMapInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B598B0F1889236B00CB343D /* HTMapInfoView.m */; };
 		AC2ACAA218862E1000F22477 /* Lato.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2ACAA118862E1000F22477 /* Lato.ttf */; };
 		AC2ACAAA1886705600F22477 /* HTTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2ACAA91886705600F22477 /* HTTimerViewController.m */; };
 		AC370E68188787520026D744 /* HTWeaponTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC370E67188787520026D744 /* HTWeaponTimerView.m */; };
@@ -66,6 +67,8 @@
 		9B598B0918850C8A00CB343D /* HTMapListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTMapListDataSource.h; path = Model/HTMapListDataSource.h; sourceTree = "<group>"; };
 		9B598B0A18850C8A00CB343D /* HTMapListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTMapListDataSource.m; path = Model/HTMapListDataSource.m; sourceTree = "<group>"; };
 		9B598B0C1885101000CB343D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		9B598B0E1889236B00CB343D /* HTMapInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTMapInfoView.h; path = View/HTMapInfoView.h; sourceTree = "<group>"; };
+		9B598B0F1889236B00CB343D /* HTMapInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTMapInfoView.m; path = View/HTMapInfoView.m; sourceTree = "<group>"; };
 		AC2ACAA118862E1000F22477 /* Lato.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lato.ttf; sourceTree = "<group>"; };
 		AC2ACAA81886705600F22477 /* HTTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTimerViewController.h; path = "View Controllers/HTTimerViewController.h"; sourceTree = "<group>"; };
 		AC2ACAA91886705600F22477 /* HTTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTimerViewController.m; path = "View Controllers/HTTimerViewController.m"; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 				AC370E67188787520026D744 /* HTWeaponTimerView.m */,
 				AC370E6918879A9E0026D744 /* HTMapTimerView.h */,
 				AC370E6A18879A9E0026D744 /* HTMapTimerView.m */,
+				9B598B0E1889236B00CB343D /* HTMapInfoView.h */,
+				9B598B0F1889236B00CB343D /* HTMapInfoView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 				9B598B0618850B2600CB343D /* HTMap.m in Sources */,
 				AC2ACAAA1886705600F22477 /* HTTimerViewController.m in Sources */,
 				9B598B02188509B600CB343D /* HTMapListViewController.m in Sources */,
+				9B598B101889236B00CB343D /* HTMapInfoView.m in Sources */,
 				9B598ADF188508A400CB343D /* HTAppDelegate.m in Sources */,
 				9B598ADB188508A400CB343D /* main.m in Sources */,
 			);
