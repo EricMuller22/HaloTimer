@@ -10,12 +10,6 @@
 #import "HTMap.h"
 #import <sqlite3.h>
 
-@interface HTMapListDataSource()
-
-// @property (nonatomic, strong, readonly) NSArray *maps;
-
-@end
-
 @implementation HTMapListDataSource
 
 @synthesize maps = _maps;

@@ -8,14 +8,17 @@
 
 #import "HTTimerViewController.h"
 #import "HTMapTimerView.h"
+#import "HTMapListViewController.h"
 #import "HTMapListDataSource.h"
 
-@interface HTTimerViewController ()
+@interface HTTimerViewController () <UIPopoverControllerDelegate>
 
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) HTMapTimerView *timerView;
 @property (strong, nonatomic) UIButton *timingButton;
 @property (strong, nonatomic) UIView *mapInfoView;
+
+@property (strong, nonatomic) UIPopoverController *mapPopoverController;
 
 @property (strong, nonatomic) HTMap *map;
 
@@ -44,8 +47,15 @@ typedef NS_ENUM(NSInteger, HTTimerButtonStatus) {
     
     self.mapInfoView = [[UIView alloc] init];
     self.mapInfoView.backgroundColor = [UIColor grayColor];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(presentMapList)];
+    [self.mapInfoView addGestureRecognizer:tap];
     [self.view addSubview:self.mapInfoView];
     
+    [self setupAutoLayout];
+}
+
+- (void)setupAutoLayout
+{
     self.timerView.translatesAutoresizingMaskIntoConstraints = NO;
     self.timingButton.translatesAutoresizingMaskIntoConstraints = NO;
     self.mapInfoView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -74,6 +84,18 @@ typedef NS_ENUM(NSInteger, HTTimerButtonStatus) {
     self.map = [dataSource maps][0];
 }
 
+#pragma mark - Rotation
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+    if (self.mapPopoverController) {
+        [self.mapPopoverController presentPopoverFromRect:self.mapInfoView.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+    }
+}
+
+#pragma mark - Timing
+
 - (void)timingButtonPressed
 {
     if (self.timer) {
@@ -92,12 +114,6 @@ typedef NS_ENUM(NSInteger, HTTimerButtonStatus) {
     [self.timerView setMap:self.map];
 }
 
-- (void)setMap:(HTMap *)map
-{
-    [self.timerView setMap:map];
-    _map = map;
-}
-
 - (void)setTimerButtonState:(HTTimerButtonStatus)status
 {
     if (status == HTTimerButtonReadyToReset) {
@@ -105,6 +121,29 @@ typedef NS_ENUM(NSInteger, HTTimerButtonStatus) {
     } else {
         self.timingButton.backgroundColor = [UIColor greenColor];
     }
+}
+
+#pragma mark - Map selection
+
+- (void)setMap:(HTMap *)map
+{
+    [self.timerView setMap:map];
+    _map = map;
+}
+
+- (void)presentMapList
+{
+    self.mapPopoverController = [[UIPopoverController alloc] initWithContentViewController:[HTMapListViewController new]];
+    self.mapPopoverController.delegate = self;
+    self.mapPopoverController.popoverContentSize = CGSizeMake(320, 480);
+    [self.mapPopoverController presentPopoverFromRect:self.mapInfoView.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+}
+
+#pragma mark - UIPopoverControllerDelegate
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    self.mapPopoverController = nil;
 }
 
 @end
