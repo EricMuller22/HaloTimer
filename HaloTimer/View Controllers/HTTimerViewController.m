@@ -32,19 +32,21 @@ typedef NS_ENUM(NSInteger, HTTimerButtonStatus) {
     self.view.backgroundColor = [UIColor whiteColor];
     self.view.alpha = 0.9f;
     
-    self.timerView = [[HTMapTimerView alloc] initWithFrame:self.view.frame];
+    self.timerView = [[HTMapTimerView alloc] init];
     [self.view addSubview:self.timerView];
     
-    self.timingButton = [[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - 40, CGRectGetWidth(self.view.frame), 40)];
+    self.timingButton = [[UIButton alloc] init];
     [self.timingButton addTarget:self action:@selector(timingButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.timingButton];
     
-//    NSDictionary *views = @{@"timers": self.timerView,
-//                            @"button": self.timingButton};
-//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[timers][button(buttonHeight)]|" options:NSLayoutFormatAlignAllRight metrics:@{@"buttonHeight": @(40)} views:views]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timerView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timerView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timerView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
+    self.timerView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.timingButton.translatesAutoresizingMaskIntoConstraints = NO;
+    NSDictionary *views = @{@"timers": self.timerView,
+                            @"button": self.timingButton,
+                            @"view": self.view};
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[timers]|" options:NSLayoutFormatAlignAllLeading metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[button(==view)]|" options:NSLayoutFormatAlignAllLeading metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[timers][button(40)]|" options:NSLayoutFormatAlignAllLeading metrics:nil views:views]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
