@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) HTMapTimerView *timerView;
 @property (strong, nonatomic) UIButton *timingButton;
+@property (strong, nonatomic) UIView *mapInfoView;
 
 @property (strong, nonatomic) HTMap *map;
 
@@ -35,18 +36,34 @@ typedef NS_ENUM(NSInteger, HTTimerButtonStatus) {
     self.timerView = [[HTMapTimerView alloc] init];
     [self.view addSubview:self.timerView];
     
-    self.timingButton = [[UIButton alloc] init];
+    self.timingButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 88, 88)];
+    self.timingButton.layer.cornerRadius = 44;
+    self.timingButton.clipsToBounds = YES;
     [self.timingButton addTarget:self action:@selector(timingButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.timingButton];
     
+    self.mapInfoView = [[UIView alloc] init];
+    self.mapInfoView.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:self.mapInfoView];
+    
     self.timerView.translatesAutoresizingMaskIntoConstraints = NO;
     self.timingButton.translatesAutoresizingMaskIntoConstraints = NO;
+    self.mapInfoView.translatesAutoresizingMaskIntoConstraints = NO;
     NSDictionary *views = @{@"timers": self.timerView,
                             @"button": self.timingButton,
+                            @"mapInfo": self.mapInfoView,
                             @"view": self.view};
+    // timers
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[timers]|" options:NSLayoutFormatAlignAllLeading metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[button(==view)]|" options:NSLayoutFormatAlignAllLeading metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[timers][button(40)]|" options:NSLayoutFormatAlignAllLeading metrics:nil views:views]];
+    // map info
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.mapInfoView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:0.5 constant:0]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[timers][mapInfo(132)]|" options:NSLayoutFormatAlignAllLeading metrics:nil views:views]];
+    
+    // button
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:88]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:88]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.5 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.mapInfoView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
