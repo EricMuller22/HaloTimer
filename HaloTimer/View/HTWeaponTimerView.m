@@ -72,7 +72,7 @@
 - (void)setTime:(NSInteger)time
 {
     _time = MAX(0, time);
-    self.timeLabel.text = [NSString stringWithFormat:@"%ld", _time];
+    self.timeLabel.text = [NSString stringWithFormat:@"%ld", (long)_time];
     [self.timeLabel sizeToFit];
 }
 
