@@ -69,12 +69,12 @@ static const CGFloat HTTimerButtonRadius = 33.0;
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[timers]|" options:NSLayoutFormatAlignAllLeading metrics:nil views:views]];
     // map info
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.mapInfoView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:0.5 constant:0]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[timers][mapInfo(132)]|" options:NSLayoutFormatAlignAllLeading metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-64-[mapInfo(132)]-32-[timers]|" options:NSLayoutFormatAlignAllLeading metrics:nil views:views]];
     
     // button
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:HTTimerButtonRadius * 2]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:HTTimerButtonRadius * 2]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.5 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.5 constant:HTTimerButtonRadius / 4]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.mapInfoView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
 }
 
@@ -91,7 +91,7 @@ static const CGFloat HTTimerButtonRadius = 33.0;
 {
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
     if (self.mapPopoverController) {
-        [self.mapPopoverController presentPopoverFromRect:self.mapInfoView.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+        [self.mapPopoverController presentPopoverFromRect:self.mapInfoView.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
 }
 
@@ -140,7 +140,7 @@ static const CGFloat HTTimerButtonRadius = 33.0;
     self.mapPopoverController = [[UIPopoverController alloc] initWithContentViewController:mapListViewController];
     self.mapPopoverController.delegate = self;
     self.mapPopoverController.popoverContentSize = CGSizeMake(320, 480);
-    [self.mapPopoverController presentPopoverFromRect:self.mapInfoView.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+    [self.mapPopoverController presentPopoverFromRect:self.mapInfoView.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)mapListViewController:(HTMapListViewController *)mapListViewController didSelectMap:(HTMap *)map
