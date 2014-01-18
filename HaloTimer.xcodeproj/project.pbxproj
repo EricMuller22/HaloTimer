@@ -29,6 +29,8 @@
 		AC2ACAAA1886705600F22477 /* HTTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2ACAA91886705600F22477 /* HTTimerViewController.m */; };
 		AC370E68188787520026D744 /* HTWeaponTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC370E67188787520026D744 /* HTWeaponTimerView.m */; };
 		AC370E6B18879A9E0026D744 /* HTMapTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC370E6A18879A9E0026D744 /* HTMapTimerView.m */; };
+		AC370E71188A07DE0026D744 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = AC370E70188A07DE0026D744 /* UIColor+HexString.m */; };
+		D57906ADC0FD401788E340D2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E7FAD3DCD83453A9B0BC6B5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9081F8F86E904486B61B50A6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		9B598ACB188508A400CB343D /* HaloTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaloTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B598ACE188508A400CB343D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9B598AD0188508A400CB343D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -69,6 +72,7 @@
 		9B598B0C1885101000CB343D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		9B598B0E1889236B00CB343D /* HTMapInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTMapInfoView.h; path = View/HTMapInfoView.h; sourceTree = "<group>"; };
 		9B598B0F1889236B00CB343D /* HTMapInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTMapInfoView.m; path = View/HTMapInfoView.m; sourceTree = "<group>"; };
+		9E7FAD3DCD83453A9B0BC6B5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC2ACAA118862E1000F22477 /* Lato.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lato.ttf; sourceTree = "<group>"; };
 		AC2ACAA81886705600F22477 /* HTTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTimerViewController.h; path = "View Controllers/HTTimerViewController.h"; sourceTree = "<group>"; };
 		AC2ACAA91886705600F22477 /* HTTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTimerViewController.m; path = "View Controllers/HTTimerViewController.m"; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 		AC370E67188787520026D744 /* HTWeaponTimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTWeaponTimerView.m; path = View/HTWeaponTimerView.m; sourceTree = "<group>"; };
 		AC370E6918879A9E0026D744 /* HTMapTimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTMapTimerView.h; path = View/HTMapTimerView.h; sourceTree = "<group>"; };
 		AC370E6A18879A9E0026D744 /* HTMapTimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTMapTimerView.m; path = View/HTMapTimerView.m; sourceTree = "<group>"; };
+		AC370E6F188A07DE0026D744 /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+HexString.h"; path = "View/UIColor+HexString.h"; sourceTree = "<group>"; };
+		AC370E70188A07DE0026D744 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+HexString.m"; path = "View/UIColor+HexString.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 				9B598AD1188508A400CB343D /* CoreGraphics.framework in Frameworks */,
 				9B598AD3188508A400CB343D /* UIKit.framework in Frameworks */,
 				9B598ACF188508A400CB343D /* Foundation.framework in Frameworks */,
+				D57906ADC0FD401788E340D2 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +117,7 @@
 				9B598AED188508A400CB343D /* HaloTimerTests */,
 				9B598ACD188508A400CB343D /* Frameworks */,
 				9B598ACC188508A400CB343D /* Products */,
+				9081F8F86E904486B61B50A6 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +139,7 @@
 				9B598AD0188508A400CB343D /* CoreGraphics.framework */,
 				9B598AD2188508A400CB343D /* UIKit.framework */,
 				9B598AE7188508A400CB343D /* XCTest.framework */,
+				9E7FAD3DCD83453A9B0BC6B5 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -219,6 +228,8 @@
 				AC370E6A18879A9E0026D744 /* HTMapTimerView.m */,
 				9B598B0E1889236B00CB343D /* HTMapInfoView.h */,
 				9B598B0F1889236B00CB343D /* HTMapInfoView.m */,
+				AC370E6F188A07DE0026D744 /* UIColor+HexString.h */,
+				AC370E70188A07DE0026D744 /* UIColor+HexString.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -230,9 +241,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B598AF7188508A400CB343D /* Build configuration list for PBXNativeTarget "HaloTimer" */;
 			buildPhases = (
+				F32C825B7F4D4FEB8ADBEB53 /* Check Pods Manifest.lock */,
 				9B598AC7188508A400CB343D /* Sources */,
 				9B598AC8188508A400CB343D /* Frameworks */,
 				9B598AC9188508A400CB343D /* Resources */,
+				B11BD753622243B79933224D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,7 +285,7 @@
 				ORGANIZATIONNAME = "Unexplored Novelty, LLC";
 				TargetAttributes = {
 					9B598ACA188508A400CB343D = {
-						DevelopmentTeam = 7XXCQUU6YJ;
+						DevelopmentTeam = CAT6HF57NJ;
 					};
 					9B598AE5188508A400CB343D = {
 						TestTargetID = 9B598ACA188508A400CB343D;
@@ -319,11 +332,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B11BD753622243B79933224D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F32C825B7F4D4FEB8ADBEB53 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9B598AC7188508A400CB343D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC370E71188A07DE0026D744 /* UIColor+HexString.m in Sources */,
 				AC370E68188787520026D744 /* HTWeaponTimerView.m in Sources */,
 				AC370E6B18879A9E0026D744 /* HTMapTimerView.m in Sources */,
 				9B598B0B18850C8A00CB343D /* HTMapListDataSource.m in Sources */,
@@ -450,6 +497,7 @@
 		};
 		9B598AF8188508A400CB343D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9081F8F86E904486B61B50A6 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -465,6 +513,7 @@
 		};
 		9B598AF9188508A400CB343D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9081F8F86E904486B61B50A6 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

@@ -11,6 +11,7 @@
 #import "HTMapInfoView.h"
 #import "HTMapListViewController.h"
 #import "HTMapListDataSource.h"
+#import "UIColor+HexString.h"
 
 @interface HTTimerViewController () <UIPopoverControllerDelegate, HTMapListDelegate>
 
@@ -74,7 +75,7 @@ static const CGFloat HTTimerButtonRadius = 33.0;
     // button
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:HTTimerButtonRadius * 2]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:HTTimerButtonRadius * 2]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.5 constant:HTTimerButtonRadius / 4]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.5 constant:HTTimerButtonRadius / 3]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.timingButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.mapInfoView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
 }
 
@@ -118,9 +119,9 @@ static const CGFloat HTTimerButtonRadius = 33.0;
 - (void)setTimerButtonState:(HTTimerButtonStatus)status
 {
     if (status == HTTimerButtonReadyToReset) {
-        self.timingButton.backgroundColor = [UIColor grayColor];
+        self.timingButton.backgroundColor = [UIColor colorWithHexString:@"#95A5A6"];
     } else {
-        self.timingButton.backgroundColor = [UIColor greenColor];
+        self.timingButton.backgroundColor = [UIColor colorWithHexString:@"#2ECC71"];
     }
 }
 

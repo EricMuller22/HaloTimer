@@ -8,6 +8,7 @@
 
 #import "HTMapTimerView.h"
 #import "HTWeaponTimerView.h"
+#import "UIColor+HexString.h"
 
 @interface HTMapTimerView()
 
@@ -34,11 +35,11 @@
 {
     self.backgroundColor = [UIColor clearColor];
     
-    self.rocketTimerView = [HTWeaponTimerView timerViewForWeapon:@"Rocket" tintColor:[UIColor orangeColor]];
-    self.shotgunTimerView = [HTWeaponTimerView timerViewForWeapon:@"Shotgun" tintColor:[UIColor grayColor]];
-    self.sniperTimerView = [HTWeaponTimerView timerViewForWeapon:@"Sniper" tintColor:[UIColor purpleColor]];
-    self.overshieldTimerView = [HTWeaponTimerView timerViewForWeapon:@"Overshield" tintColor:[UIColor redColor]];
-    self.camoTimerView = [HTWeaponTimerView timerViewForWeapon:@"Active Camo" tintColor:[UIColor blueColor]];
+    self.rocketTimerView = [HTWeaponTimerView timerViewForWeapon:@"Rocket" displayColor:[UIColor colorWithHexString:@"#D35400"]];
+    self.shotgunTimerView = [HTWeaponTimerView timerViewForWeapon:@"Shotgun" displayColor:[UIColor colorWithHexString:@"#27AE60"]];
+    self.sniperTimerView = [HTWeaponTimerView timerViewForWeapon:@"Sniper" displayColor:[UIColor colorWithHexString:@"#8E44AD"]];
+    self.overshieldTimerView = [HTWeaponTimerView timerViewForWeapon:@"Overshield" displayColor:[UIColor colorWithHexString:@"#C0392B"]];
+    self.camoTimerView = [HTWeaponTimerView timerViewForWeapon:@"Active Camo" displayColor:[UIColor colorWithHexString:@"#2980B9"]];
     
     [self addSubview:self.rocketTimerView];
     [self addSubview:self.sniperTimerView];
@@ -57,7 +58,7 @@
                             @"camo": self.camoTimerView};
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[rocket]|" options:NSLayoutFormatAlignAllLeft|NSLayoutFormatAlignAllRight metrics:nil views:views]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.rocketTimerView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeHeight multiplier:0.2 constant:0]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[rocket][sniper(==rocket)][shotgun(==rocket)][overshield(==rocket)][camo(==rocket)]|" options:NSLayoutFormatAlignAllLeft|NSLayoutFormatAlignAllRight metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[overshield(==rocket)][camo(==rocket)][rocket][sniper(==rocket)][shotgun(==rocket)]|" options:NSLayoutFormatAlignAllLeft|NSLayoutFormatAlignAllRight metrics:nil views:views]];
 }
 
 - (void)setMap:(HTMap *)map

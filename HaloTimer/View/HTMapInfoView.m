@@ -7,6 +7,7 @@
 //
 
 #import "HTMapInfoView.h"
+#import "UIColor+HexString.h"
 
 @interface HTMapInfoView()
 
@@ -34,10 +35,12 @@ static const CGFloat HTScreenshotRadius = 66.0;
     
     self.mapNameLabel = [UILabel new];
     self.mapNameLabel.font = [UIFont fontWithName:@"Lato" size:28.0];
+    self.mapNameLabel.textColor = [UIColor colorWithHexString:@"#2C3E50"];
     [self addSubview:self.mapNameLabel];
     
     self.screenshotView = [UIImageView new];
     self.screenshotView.layer.cornerRadius = HTScreenshotRadius;
+    self.screenshotView.contentMode = UIViewContentModeScaleAspectFill;
     self.screenshotView.clipsToBounds = YES;
     [self addSubview:self.screenshotView];
     

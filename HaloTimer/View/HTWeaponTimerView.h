@@ -11,8 +11,9 @@
 @interface HTWeaponTimerView : UIView
 
 @property (nonatomic, assign) NSInteger weaponTiming;
+@property (nonatomic, strong) UIColor *displayColor;
 
-+ (instancetype)timerViewForWeapon:(NSString *)weapon tintColor:(UIColor *)tintColor;
++ (instancetype)timerViewForWeapon:(NSString *)weapon displayColor:(UIColor *)displayColor;
 
 - (void)countdown;
 
