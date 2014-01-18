@@ -7,7 +7,7 @@
 //
 
 #import "HTWeaponTimerView.h"
-#import "UIColor+HexString.h"
+#import <UIColor+HTMLColors.h>
 
 @interface HTWeaponTimerView()
 

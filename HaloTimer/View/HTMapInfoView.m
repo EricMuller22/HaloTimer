@@ -7,7 +7,7 @@
 //
 
 #import "HTMapInfoView.h"
-#import "UIColor+HexString.h"
+#import <UIColor+HTMLColors.h>
 
 @interface HTMapInfoView()
 

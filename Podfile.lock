@@ -1,1 +1,10 @@
+PODS:
+  - UIColor-HTMLColors (1.0.0)
+
+DEPENDENCIES:
+  - UIColor-HTMLColors
+
+SPEC CHECKSUMS:
+  UIColor-HTMLColors: da4cd2f18102ace67736392ffd15d8a145e5a31f
+
 COCOAPODS: 0.29.0

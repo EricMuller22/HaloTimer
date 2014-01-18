@@ -11,7 +11,7 @@
 #import "HTMapInfoView.h"
 #import "HTMapListViewController.h"
 #import "HTMapListDataSource.h"
-#import "UIColor+HexString.h"
+#import <UIColor+HTMLColors.h>
 
 @interface HTTimerViewController () <UIPopoverControllerDelegate, HTMapListDelegate>
 
